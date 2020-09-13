@@ -1,0 +1,21 @@
+解构赋值
+let json = {
+    name: 'name',
+    age: 18,
+    job: 'chengxuyuan'
+};
+let {name, age, job:a} = json;
+let a = [1,2];
+const [m,n,s=0] = a;
+但是null和undefined不同，null需要单独处理
+let a;
+({a} = {a:3})//不加括号， 会当成块级作用域
+
+数组交换
+let a = 2;
+let b =3;
+[b,a] = [a,b]
+
+top是一个window对象
+import {a,b,c} from './module';
+show({a，b='默认'}={}) //解构对象直接给默认

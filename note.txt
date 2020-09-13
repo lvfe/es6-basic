@@ -1,0 +1,116 @@
+ES6环境
+webpack 3.x
+Traceur
+Chrome:对新的语法支持， 速度还是挺猛的
+
+关于定义（声明）变量
+var a = 12;
+作用域：
+    全局
+    函数作用域
+块级作用域：{}
+    const 常量，定义好了不能改变
+    let 相当于var
+var只在全局和函数有用， 所以
+if(true){
+    var a = 12;
+}
+alert(a) // a的变量提升， 可以访问，回复12
+if(true){
+    let a = 12;
+}
+alert(a) // undefined
+
+作用域查找(ok的)
+let a = 12;
+function fn(){
+    alert(a);
+}
+fn();
+
+//作用域查找，使值变成undeinfed
+let a = 12;
+function fn(){
+    alert(a); //TDZ暂时的，死区域
+    let a = 3; //TDZ结束
+}
+fn(); 
+// let不存在预解析，不存在变量提升
+//先定义， 再使用
+
+
+//早期
+var a = 12;
+var a = 5;
+alert(a) //5
+
+// es6 
+let a = 12;
+let a = 5;
+alert(a) //a has already been declared
+
+for循环是父级作用域
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <!-- var a =12; // 全局变量都可以使用
+    function fn(){
+        alert(a);
+        var a = 5; //局部优先用局部 
+        /*
+        * var a;
+        * alert(a);
+        * a = 5;
+        */
+    }
+    fn(); -->
+    <!-- let a = 12; -->
+    <input type="button" value="aaa"></input>
+    <input type="button" value="bbb"></input>
+    <script>
+        document.onload = ()=>{
+            console.log(123);
+        document.querySelectorAll('input').forEach(i=>{
+            // i.addEventListener('click', ()=>{
+            //     i.value+='a';
+            // })
+            i.onclick = ()=>{
+                i.value+='a'
+            }
+        })
+        }
+        
+    </script>
+</body>
+</html>
+
+const不可更改，和let一样，在同一个块级作用域不可重复定义
+不可以const a; a= 12;//必须定义时赋值
+
+但是数组，对象可以修改const
+const a = [1,2];
+a.push(3);
+需要格外的object.freeze()
+const a = Object.freeze(['apple', 'orage']);
+a.push('banabce'); // cannot push 
+const config = {
+    host;
+    usename
+    passowrd
+    version
+}
+IIFE //没有块级作用域，立即执行
+(function(){
+    //todo
+})()
+//现在可以 {
+    //todo
+}
+用let， 不改变用const
+const htpp = require('http');

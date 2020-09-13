@@ -1,0 +1,89 @@
+1. 函数默认参数
+function show(a=20){
+    let a = 201
+    console.log();
+}
+show();
+// a has been declared
+
+2, 扩展运算符, reset运算符
+...扩展， 重置
+let arr = ['apple', 'banana'];
+console.log(arr); // array(2)
+console.log(...arr); // aplicae, banabe,不能typeof数组展开
+
+展开数组
+let arr = [1,2,3,4,5];
+传入： 1,2,3,4,5
+function show(...a){
+    console.log(a) // [1,2,3,45]
+    //或者
+    console.log(arguments);
+    return Array.prototype.slice.call(arguments).sort();
+}
+show(1,2,3,45);
+
+function show([a,b,c]){
+    console.log(a,b,c);
+}
+show([1,2,3]);
+但是，可以
+function show(a,b,c){
+    console.log(a,b,c);
+}
+show(...[1,2,3]);
+剩余运算符
+function show(a,b, ...c){
+    console.log(a,b); // 1,2
+    console.log(c) // [3,4,5]
+}
+show(1,2,3,4,5)
+
+数组复制
+let arr = [1,2,3,4,5];
+//let arr2 = [...arr];
+let arr2 = Array.from(arr);
+
+
+展开运算符 可以展开 [1,2,3,4] => ....[1,2,3,4] -> 1,2,3,4,5
+也可以合成数组 1,2,3,4,5 => ...1,2,3,4,5 -> [1,2,3,4,5]
+rest必须放到最后
+
+箭头函数
+let show = ()=>1;
+console.log(show())
+
+//var id = 10;
+let json = {
+    id: 1,
+    show: function(){
+        setTimeout(function(){
+            alert(this.id);
+        }, 2000);
+    }
+}
+json.show();
+// 这这一次， var id = 10;  会弹出10. this因为setTimeout运行时指向window.
+//window.id.
+//可是var默认的是全局作用域，也就是window。
+//如果换成let id = 10.就会弹出undefined
+
+如果换成箭头函数
+var id = 10;
+let json = {
+    id: 1,
+    show: function(){
+        setTimeout(()=>{
+            alert(this.id);
+        }, 2000);
+    }
+}
+json.show(); //弹出1， 定义函数时所在的对象json，不再是运行时
+
+this
+    this的指向变成函数所在对象json, 不再是运行时，谁执行指向谁
+    arguments,箭头函数没有arguments,可以用...args
+    箭头函数不能用构造函数，
+es2017可以允许最后逗号,
+show(1,2,3,)
+show(a,v,b,)

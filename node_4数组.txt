@@ -1,0 +1,22 @@
+数组
+es5新增的一些东西
+原来循环
+1. for:
+    for(let i=0;i<arr.length;i++)
+2. whle
+
+arr.forEach()
+arr.map()
+arr.filter()
+arr.some()
+arr.every()
+arr.reduce()
+arr.reduceRight()
+其实后面他们可以接收两个参数,但是第一个是箭头函数就不用了无效
+//这些函数接收的参数一样
+arr.forEach(function(val, index, arr)=>{
+//this指向window
+}, this)
+arr.forEach(function(val, index, arr)=>{
+
+}.bind(this));

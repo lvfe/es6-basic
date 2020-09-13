@@ -1,0 +1,25 @@
+字符串魔板
+新增了字符串魔板
+加了字符串查找
+let str = 'apple here pear';
+str.indexOf('apple')!==-1
+str.includes('apple') // es2016 es7
+要找的东西， 返回值 true/false
+if(navigator.userAgent.includes('Chrome')){
+
+}
+
+https://www.
+判断字符串是否是以。。。开头
+str.startsWith('https://')
+str.endsWith('.png');
+
+重复字符串
+str= 'mumaren'
+console.log(str.repeat(3)) //e2018
+字符串填充
+str.padStart(字符串长度，往里面填充的东西) /往前面填充
+str.padEnd(字符串长度，往里面填充的东西); // 往后面填充
+
+padStr = 'xxx';
+a.padStart(a.length+padStr.length, padStr) //xxxa
