@@ -20,3 +20,17 @@ arr.forEach(function(val, index, arr)=>{
 arr.forEach(function(val, index, arr)=>{
 
 }.bind(this));
+
+es2018 2**3
+
+for(let index of arr.keys()){
+
+}
+for(let item of arr.entries()){
+
+}
+for(let [keym val] of arr.entries()){
+
+}
+default
+arr.vakues()

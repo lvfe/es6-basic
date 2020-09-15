@@ -1,0 +1,72 @@
+let name='123'
+let age = 12
+let json = {
+    name,
+    age,
+    showA(){
+        return this.name 
+    }
+}
+和下面的写法相同
+let json = {
+    name,
+    age,
+    showA： function(){
+        return this.name
+    }
+}//不要使用箭头函数，因为在这个例子中， this指向windows, 需要var name='aa'. 没有必要
+new Vue({
+    router,
+    App,
+    vuex
+})
+
+Object.is() 用来比较两个值是否相等
+Object.is('a', 'a')
+
+比较两个东西相等
+==
+===
+console.log(Number.isNan(NaN))
+Object.is(NaN, NaN) // true
++0===-0
+
+Object,.is() //处理了+0！=-0， NaN === NaN
+Object.assign()用来合并对象
+新对象 = object.assugn(tartget, source1, source2);//后面的覆盖前面的优先级后面的高
+function ajax(options){
+    let defaults = {};
+
+}
+
+数组合并
+let arr = [1,2,];
+let arr2 = Object.assign([], arr);
+用途：复制克隆对象，数组
+2. 合并参数
+3. Object.entries() //而是es2017
+4. Object.values() // 而是es2017
+
+let {keys, values, entries} = Object;
+for(let key of keys(json)){
+
+}
+for(let item of entries(json)){
+consoe.log(item)
+}
+for(let [key, val] of entries(json)){
+
+}
+
+对象身上也有扩展运算符
+es2018
+
+
+let {x, y, ...z} = {x:1,y:2, c:3, d:4};
+console.log(x, y)
+
+let json = {a:3, b:4};
+let json2 = {...json};
+console.log(json2); //{a；3， b:4}
+delete json2.b
+console.log(json); //还在

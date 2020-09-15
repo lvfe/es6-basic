@@ -1,0 +1,63 @@
+<script type="module"></script>
+1. 有提升效果， 可以变量提升, import会自动提升到顶部， 首先执行
+sum()
+import {sum} from './module1.js'
+2. import可以是相对路径， 也可以是绝对路径
+    import 'https://code.jquery.com/jquery-3.3.1.js'
+3. import模块智慧导入一次， 无论你引入多少次
+4. import './module/1.js' 如果这么用，相当于引入文件
+
+a.js
+a = 1;
+setTImout(()=>{
+    a = 111;
+},100)
+export {a}
+b.js
+import {a} from './a'
+console.log(a);
+setTImout(()=>{
+    console.log(a);
+}, 2000)
+
+5. 不像Commonjs有缓存， 如果里面的值因为定时器发生改变， 外import的值
+也会发生改变。
+
+6. 可以动态条件式引入吗。import()类似node里面的require, 可以动态引入， 
+默认import语法不能写到If之类里面
+let a = 12;
+//if(a===12){
+//    import {a} from './a.js'; //这样不对
+//}
+import('./module/1.js').then(res=>{
+    console.log(res.b)
+})//then代表调用成功
+1.按需加载
+2. 可以写if中
+lt sign = 1
+function config(){
+    switch(sign){
+        case 1:
+            return './module/1.js'
+    }
+}
+    import(config).then(res=>{]})
+
+
+3. 这种类似按需加载的模块化 返回promise
+Promise.all([
+    import('./module/1.js')
+    import('./module/2.js')
+]).then(([mo1, mo2])=>{
+    console.log(mo1, mo2);
+})
+
+async function main(){
+    const mo1 = await import('./1.js')
+    const mo2 = await import('./2.js')
+    cnst [m1, m2] = await Promise.all([
+        import('./1.js'),
+        imprt('./2.js')
+    ])
+}
+4.路径也可以动态。
